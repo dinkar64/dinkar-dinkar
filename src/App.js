@@ -1,6 +1,7 @@
 // src/App.js
 
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -10,6 +11,10 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 const App = () => {
+  useEffect(() => {
+    document.title = 'Dinkar';
+}, []);
+
   const [activePage, setActivePage] = useState('home');
 
   const handlePageChange = (page) => {
