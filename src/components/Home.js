@@ -1,9 +1,12 @@
 // src/components/Home.js
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import profileImage from './profile_img.jpg'; // Replace with your actual image file name
 
 const Home = () => {
+  useEffect(() => {
+        document.title = 'Dinkar';
+    }, []);
   const linkedinUrl = 'https://www.linkedin.com/in/dinkar-dinkar'; // Replace with your LinkedIn profile URL
   return (
     <div style={{ textAlign: 'center', marginTop: '20px' }}>
