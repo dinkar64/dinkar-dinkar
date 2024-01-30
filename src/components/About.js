@@ -36,15 +36,18 @@ const WriteAbout = () => {
 
       <h2 style={{ color: '#008080' }} >Work Experience</h2>
       <p>
-        <b>Software Engineer, Dept of Computer Science, UCR</b><br />
+        <b>Software Engineer</b><br />
+        Dept of Computer Science, UCR
         Jan 2023 - Sept 2023
       </p>
       <p>
-        <b>Software Engineer - Machine Learning, IIT Tirupati, India</b><br />
+        <b>Software Engineer - Machine Learning</b><br />
+        IIT Tirupati, India
         Jun 2021 - Dec 2021
       </p>
       <p>
-        <b>Data Science Project Lead, WHEELS Global Foundation, USA</b><br />
+        <b>Project Lead</b><br />
+        WHEELS Global Foundation, USA
         May 2019 - Jul 2019
       </p>
       <br />
@@ -53,6 +56,7 @@ const WriteAbout = () => {
       <h2 style={{ color: '#008080' }} >Achievements & Other Experience</h2>
       <p>
       <ul>
+          <li>Computer Science <b>Teaching Assistant</b> for CS 010A - Intro to Computer Science for Science, Mathematics, & Engineering I (C++) CS 141 - Intermediate Data Structures and Algorithms. </li>
           <li>Held student leadership positions Student General Secretary and Mess Affairs Secretary at IIT Tirupati. </li>
           <li> <b>Silver Medal, Inter-IIT Tech meet 2019, India </b>Implemented an algorithm that finds an optimal solution for the BOSCH Vehicle Routing Problem(VRP) with a given set of constraints and achieved silver medal at Inter-IIT held at IIT Roorkee</li>
           {/* Add more points */}
