@@ -1,0 +1,330 @@
+commit q (HEAD)
+Author: dinkar64 <dinkarrathi64@gmail.com>
+Date:   Tue Jan 30 23:31:02 2024 -0800
+
+    Correction - 2
+
+diff --git a/src/components/About.js b/src/components/About.js
+index 48b4dec..9e4374f 100644
+--- a/src/components/About.js
++++ b/src/components/About.js
+@@ -1,11 +1,31 @@
+-// src/components/WriteAbout.js
+-
+-import React from 'react';
++import React, { useState, useEffect } from 'react';
+
+ const WriteAbout = () => {
++  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
++
++  useEffect(() => {
++    const handleResize = () => {
++      setIsMobile(window.innerWidth < 768);
++    };
++
++    window.addEventListener('resize', handleResize);
++
++    return () => {
++      window.removeEventListener('resize', handleResize);
++    };
++  }, []);
++
+   return (
+-    <div style={{ marginTop: '100', margin: '20px', marginLeft: '200px', marginRight: '200px', paddingTop: '100px', position: 'absolute' }}>
+-      <h1 style={{ color: '#0E76A8' }} >About Me</h1>
++    <div
++      style={{
++        marginTop: '100',
++        margin: '20px',
++        paddingTop: '100px',
++        position: 'absolute', 
++        ...(isMobile ? { marginLeft: '10px', marginRight: '10px' } : { marginLeft: '200px', marginRight: '200px' }),
++      }}
++    >
++      <h1 style={{ color: '#0E76A8' }}>About Me</h1>
+       <p>
+       Hi, I am <b>Dinkar</b>, a dedicated computer science professional with a Master's in Computer Science from the University of California, Riverside, and a Bachelor's from the esteemed Indian Institute of Technology, Tirupati. My expertise lies in machine learning and software engineering, where I've actively contributed to diverse projects. Proficient in various programming languages, frameworks, and tools, I excel in project management, data-driven decision-making, and full-stack development. In addition to academic achievements, I have showcased leadership in managing budgets and initiatives, earning recognition as a Silver Medalist at the Inter-IIT Tech meet. Explore my journey for a firsthand look into the realm of technology and innovation.
+       <br />
+diff --git a/src/components/Header.css b/src/components/Header.css
+index 5716ae2..a6527b2 100644
+--- a/src/components/Header.css
++++ b/src/components/Header.css
+@@ -2,15 +2,38 @@
+
+ header {
+   background-color: #fff;
+-  padding: 20px 40px;
++  padding: 20px 40px; /* Adjust padding as needed */
+   position: fixed;
+-  width: calc(100% - 80px);
++  width: calc(100% - 80px); /* Extend full width on mobile */
+   z-index: 1000;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
++  transition: padding 0.3s ease; /* Smoother transition on resize */
+ }
+
++/* Styles for mobile viewport */
++@media only screen and (max-width: 768px) {
++  header {
++    padding: 10px 20px; /* Adjust padding for smaller screens */
++  }
++
++  .header-left {
++    flex-direction: column; /* Stack elements vertically */
++    align-items: center;
++  }
++
++  .header-right {
++    display: none; /* Hide right-side links on mobile */
++  }
++
++  .hamburger-menu {
++    display: block; /* Show hamburger menu button */
++    margin-left: auto; /* Position to the right */
++  }
++}
++
++/* General header styles (apply to both desktop and mobile) */
+ .header-left {
+   display: flex;
+   align-items: center;
+@@ -65,16 +88,10 @@ header {
+   transform: scaleX(1);
+ }
+
+-@media only screen and (max-width: 768px) {
+-  header {
+-    padding: 10px 20px;
+-  }
+-
+-  .header-right {
+-    display: none;
+-  }
+-
+-  .menu-icon {
+-    display: block;
+-  }
++/* Hamburger menu button */
++.hamburger-menu {
++  display: none; /* Hide by default on desktop */
++  border: none;
++  background-color: transparent;
++  cursor: pointer;
+ }
+diff --git a/src/components/Header.js b/src/components/Header.js
+index b2cf9c3..fe565a4 100644
+--- a/src/components/Header.js
++++ b/src/components/Header.js
+@@ -1,21 +1,47 @@
+-// src/components/Header.js
+-
+-import React from 'react';
++import React, { useState, useEffect } from 'react';
+ import './Header.css';
+
+ const Header = ({ handlePageChange, activePage }) => {
++  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
++
+   const handleContactClick = () => {
+     window.location.href = 'mailto:dinkar.dinkar001@gmail.com';
+   };
+
++  useEffect(() => {
++    const handleResize = () => {
++      setIsMobile(window.innerWidth < 768);
++    };
++
++    window.addEventListener('resize', handleResize);
++
++    return () => {
++      window.removeEventListener('resize', handleResize);
++    };
++  }, []);
++
+   return (
+-    <header className={activePage === 'home' ? 'home-header' : ''}>
++    <header className={`${activePage === 'home' ? 'home-header' : ''} ${isMobile ? 'mobile-header' : ''}`}>
+       <div className="header-left">
+-        <h1 className={activePage === 'home' ? 'dinkar active' : 'dinkar'} onClick={() => handlePageChange('home')}>Dinkar</h1>
++        <h1 className={`dinkar ${activePage === 'home' ? 'active' : ''}`} onClick={() => handlePageChange('home')}>
++          Dinkar
++        </h1>
+       </div>
+       <div className="header-right">
+-        <div className={activePage === 'about' ? 'active' : ''} onClick={() => handlePageChange('about')}>About</div>
+-        <div className={activePage === 'projects' ? 'active' : ''} onClick={() => handlePageChange('projects')}>Projects</div>
++        {isMobile ? (
++          <button className="hamburger-menu" onClick={() => {
++            // Toggle mobile menu here
++          }}>
++            &#9776;
++          </button>
++        ) : (
++          <>
++            <div className={activePage === 'about' ? 'active' : ''} onClick={() => handlePageChange('about')}>About</div>
++            <div className={activePage === 'projects' ? 'active' : ''} onClick={() => handlePageChange('projects')}>
++              Projects
++            </div>
++          </>
++        )}
+         <div className="contact-section" onClick={handleContactClick}>
+           <span role="img" aria-label="Email">✉️</span> Contact
+         </div>
+diff --git a/src/components/Projects.css b/src/components/Projects.css
+index a4e3cb7..74cf50e 100644
+--- a/src/components/Projects.css
++++ b/src/components/Projects.css
+@@ -1,70 +1,93 @@
+ /* src/components/Projects.css */
+
+ .project-cards {
+-    display: flex;
+-    flex-wrap: wrap;
+-    justify-content: space-between;
++  display: flex;
++  flex-wrap: wrap;
++  justify-content: space-between;
++  margin: 20px;
++}
++
++.card {
++  width: calc(50% - 20px);
++  margin-bottom: 30px;
++  border: 1px solid #ddd;
++  border-radius: 8px;
++  overflow: hidden;
++  transition: transform 0.2s ease-in-out;
++  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
++}
++
++.card:hover {
++  cursor: pointer;
++  transform: scale(1.05);
++}
++
++.card img {
++  width: 100%;
++  height: auto;
++  border-bottom: 1px solid #ddd;
++}
++
++.card h3 {
++  color: #001F3F;
++  padding: 15px;
++  margin: 0;
++  font-size: 18px;
++}
++
++.card p {
++  padding: 15px;
++  margin: 0;
++  color: #333;
++  line-height: 1.5;
++}
++
++.link-container {
++  text-align: center;
++  margin-top: 10px;
++  margin-bottom: 20px;
++}
++
++.external-link {
++  color: #3498db;
++  background-color: #fff;
++  padding: 8px 12px;
++  border: 1px solid #3498db;
++  border-radius: 5px;
++  cursor: pointer;
++  font-size: 16px;
++}
++
++.external-link:hover {
++  background-color: #3498db;
++  color: #fff;
++}
++
++/* Responsive styles */
++
++@media only screen and (max-width: 768px) {
++  .project-cards {
++    flex-direction: column;
+   }
+-
++
+   .card {
+-    width: calc(50% - 20px); /* Two cards in a row with increased space */
+-    margin-bottom: 30px; /* Increased space between cards */
+-    border: 1px solid #ddd;
+-    border-radius: 8px;
+-    overflow: hidden;
+-    transition: transform 0.2s ease-in-out;
+-  }
+-
+-  .card:hover {
+-    cursor: pointer;
+-    transform: scale(1.05);
+-  }
+-
+-  .card img {
+     width: 100%;
+-    height: auto;
+-    border-bottom: 1px solid #ddd;
+-  }
+-
+-  .card h3 {
+-    color: #001F3F;
+-    padding: 15px; /* Increased padding */
+-    margin: 0;
+-  }
+-
+-  .card p {
+-    padding: 15px; /* Increased padding */
+-    margin: 0;
+-    color: #333;
+-  }
+-
+-  .link-container {
+-    text-align: center;
+-    margin-top: 10px; /* Add some margin between the project description and the link */
+     margin-bottom: 20px;
+   }
+-
+-  .external-link {
+-    color: #3498db;
+-    background-color: #fff;
+-    padding: 8px 12px;
+-    border: 1px solid #3498db;
+-    border-radius: 5px;
+-    cursor: pointer;
+-  }
+-
+-  .external-link:hover {
+-    background-color: #3498db;
+-    color: #fff;
++
++  .card h3 {
++    font-size: 16px;
+   }
+
+-    /* Responsive styles */
+-@media only screen and (max-width: 768px) {
+-  .project-cards {
+-    flex-direction: column;
++  .card p {
++    font-size: 14px;
+   }
+
+-  .card {
+-    width: 100%;
++  /* New rule for single card per row on smaller screens */
++  @media only screen and (max-width: 576px) {
++    .project-cards {
++      /* Ensure there's only one card per row */
++      flex-wrap: nowrap;
++    }
+   }
+ }
+\ No newline at end of file
+(END)
