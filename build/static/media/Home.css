@@ -1,0 +1,21 @@
+/* src/components/Home.css */
+
+.home-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .profile-image {
+    border-radius: 50%;
+    width: 100%; /* Adjust as needed */
+    max-width: 250px;
+    height: auto;
+    margin-top: 160px;
+  }
+  
+  .tagline {
+    font-style: italic;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,97 @@
+/* src/components/Header.css */
+
+header {
+  background-color: #fff;
+  padding: 20px 40px; /* Adjust padding as needed */
+  position: fixed;
+  width: calc(100% - 80px); /* Extend full width on mobile */
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: padding 0.3s ease; /* Smoother transition on resize */
+}
+
+/* Styles for mobile viewport */
+@media only screen and (max-width: 768px) {
+  header {
+    padding: 10px 20px; /* Adjust padding for smaller screens */
+  }
+
+  .header-left {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+  }
+
+  .header-right {
+    display: none; /* Hide right-side links on mobile */
+  }
+
+  .hamburger-menu {
+    display: block; /* Show hamburger menu button */
+    margin-left: auto; /* Position to the right */
+  }
+}
+
+/* General header styles (apply to both desktop and mobile) */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+}
+
+.header-right div {
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  color: #888;
+  font-weight: bold;
+}
+
+.header-right div:hover,
+.dinkar:hover {
+  text-decoration: underline;
+  color: #333;
+}
+
+/* Highlight the selected section */
+.header-right div.active,
+.dinkar.active {
+  color: #333;
+}
+
+/* Style the Dinkar link */
+.dinkar {
+  font-weight: bold;
+  color: #333;
+  position: relative;
+}
+
+.dinkar::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #3498db;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.dinkar:hover::after,
+.dinkar.active::after {
+  transform: scaleX(1);
+}
+
+/* Hamburger menu button */
+.hamburger-menu {
+  display: none; /* Hide by default on desktop */
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
