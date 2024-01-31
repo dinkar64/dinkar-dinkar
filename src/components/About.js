@@ -27,7 +27,7 @@ const WriteAbout = () => {
     >
       <h1 style={{ color: '#0E76A8' }}>About Me</h1>
       <p>
-      Hi, I am <b>Dinkar</b>, a dedicated computer science professional with a Master's in Computer Science from the University of California, Riverside, and a Bachelor's from the esteemed Indian Institute of Technology, Tirupati. My expertise lies in machine learning and software engineering, where I've actively contributed to diverse projects. Proficient in various programming languages, frameworks, and tools, I excel in project management, data-driven decision-making, and full-stack development. In addition to academic achievements, I have showcased leadership in managing budgets and initiatives, earning recognition as a Silver Medalist at the Inter-IIT Tech meet. Explore my journey for a firsthand look into the realm of technology and innovation.
+      Hi, I am <b>Dinkar</b>, a technology enthusiast with a Master's in Computer Science from the University of California, Riverside, and a Bachelor's from the esteemed Indian Institute of Technology, Tirupati. My journey in the tech realm is fueled by a profound interest in the potential of machine learning and artificial intelligence. Beyond the confines of academia, I've immersed myself in diverse projects, honing skills in various programming languages, frameworks, and tools. My focus extends from project management and data-driven decision-making to full-stack development. Explore with me the captivating possibilities within the evolving landscapes of Artificial Intelligence, where my curiosity and passion drive continuous exploration and learning.
       <br />
       <br />
       <br />
@@ -57,17 +57,17 @@ const WriteAbout = () => {
       <h2 style={{ color: '#008080' }} >Work Experience</h2>
       <p>
         <b>Software Engineer</b><br />
-        Dept of Computer Science, UCR
+        Dept of Computer Science, UCR<br />
         Jan 2023 - Sept 2023
       </p>
       <p>
-        <b>Software Engineer - Machine Learning</b><br />
-        IIT Tirupati, India
+        <b>Software Engineer - Machine Learning (JRF) </b><br />
+        IIT Tirupati, India<br />
         Jun 2021 - Dec 2021
       </p>
       <p>
         <b>Project Lead</b><br />
-        WHEELS Global Foundation, USA
+        WHEELS Global Foundation, USA<br />
         May 2019 - Jul 2019
       </p>
       <br />
@@ -75,10 +75,12 @@ const WriteAbout = () => {
 
       <h2 style={{ color: '#008080' }} >Achievements & Other Experience</h2>
       <p>
-      <ul>
-          <li>Computer Science <b>Teaching Assistant</b> for CS 010A - Intro to Computer Science for Science, Mathematics, & Engineering I (C++) CS 141 - Intermediate Data Structures and Algorithms. </li>
-          <li>Held student leadership positions Student General Secretary and Mess Affairs Secretary at IIT Tirupati. </li>
-          <li> <b>Silver Medal, Inter-IIT Tech meet 2019, India </b>Implemented an algorithm that finds an optimal solution for the BOSCH Vehicle Routing Problem(VRP) with a given set of constraints and achieved silver medal at Inter-IIT held at IIT Roorkee</li>
+      <ul style={{ marginBottom: "10px" }}>
+          <li style={{ marginBottom: "10px" }} >Computer Science <b>Teaching Assistant</b> for CS 010A - Intro to Computer Science for Science, Mathematics, & Engineering I (C++) CS 141 - Intermediate Data Structures and Algorithms. (Fall 2023) </li>
+          <li style={{ marginBottom: "10px" }} >Course Assistant (Reader) for CS 141 - Intermediate Data Structures and Algorithms, UCR. (Spring 2023)</li>
+          <li style={{ marginBottom: "10px" }} >As a Graduate Student Assistant, I collaborated with Professor Kelly Downey in managing test center operations as a member of the CSE Test Center team at UCR. (2023- 2024)</li>
+          <li style={{ marginBottom: "10px" }} >Held student leadership positions Student General Secretary and Mess Affairs Secretary at IIT Tirupati. </li>
+          <li style={{ marginBottom: "50px" }} ><b>Silver Medal, Inter-IIT Tech meet 2019, India </b>Implemented an algorithm that finds an optimal solution for the BOSCH Vehicle Routing Problem(VRP) with a given set of constraints and achieved silver medal at Inter-IIT held at IIT Roorkee.</li>
           {/* Add more points */}
         </ul>
       </p>
