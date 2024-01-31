@@ -1,11 +1,31 @@
-// src/components/WriteAbout.js
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const WriteAbout = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <div style={{ marginTop: '100', margin: '20px', marginLeft: '200px', marginRight: '200px', paddingTop: '100px', position: 'absolute' }}>
-      <h1 style={{ color: '#0E76A8' }} >About Me</h1>
+    <div
+      style={{
+        marginTop: '100',
+        margin: '20px',
+        paddingTop: '100px',
+        position: 'absolute', 
+        ...(isMobile ? { marginLeft: '10px', marginRight: '10px' } : { marginLeft: '200px', marginRight: '200px' }),
+      }}
+    >
+      <h1 style={{ color: '#0E76A8' }}>About Me</h1>
       <p>
       Hi, I am <b>Dinkar</b>, a dedicated computer science professional with a Master's in Computer Science from the University of California, Riverside, and a Bachelor's from the esteemed Indian Institute of Technology, Tirupati. My expertise lies in machine learning and software engineering, where I've actively contributed to diverse projects. Proficient in various programming languages, frameworks, and tools, I excel in project management, data-driven decision-making, and full-stack development. In addition to academic achievements, I have showcased leadership in managing budgets and initiatives, earning recognition as a Silver Medalist at the Inter-IIT Tech meet. Explore my journey for a firsthand look into the realm of technology and innovation.
       <br />

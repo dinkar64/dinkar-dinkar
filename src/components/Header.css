@@ -2,15 +2,38 @@
 
 header {
   background-color: #fff;
-  padding: 20px 40px;
+  padding: 20px 40px; /* Adjust padding as needed */
   position: fixed;
-  width: calc(100% - 80px);
+  width: calc(100% - 80px); /* Extend full width on mobile */
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: padding 0.3s ease; /* Smoother transition on resize */
 }
 
+/* Styles for mobile viewport */
+@media only screen and (max-width: 768px) {
+  header {
+    padding: 10px 20px; /* Adjust padding for smaller screens */
+  }
+
+  .header-left {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+  }
+
+  .header-right {
+    display: none; /* Hide right-side links on mobile */
+  }
+
+  .hamburger-menu {
+    display: block; /* Show hamburger menu button */
+    margin-left: auto; /* Position to the right */
+  }
+}
+
+/* General header styles (apply to both desktop and mobile) */
 .header-left {
   display: flex;
   align-items: center;
@@ -65,16 +88,10 @@ header {
   transform: scaleX(1);
 }
 
-@media only screen and (max-width: 768px) {
-  header {
-    padding: 10px 20px;
-  }
-
-  .header-right {
-    display: none;
-  }
-
-  .menu-icon {
-    display: block;
-  }
+/* Hamburger menu button */
+.hamburger-menu {
+  display: none; /* Hide by default on desktop */
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
