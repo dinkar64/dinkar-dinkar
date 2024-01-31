@@ -3,6 +3,7 @@ import './Header.css';
 
 const Header = ({ handlePageChange, activePage }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for menu visibility
 
   const handleContactClick = () => {
     window.location.href = 'mailto:dinkar.dinkar001@gmail.com';
@@ -20,6 +21,10 @@ const Header = ({ handlePageChange, activePage }) => {
     };
   }, []);
 
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header className={`${activePage === 'home' ? 'home-header' : ''} ${isMobile ? 'mobile-header' : ''}`}>
       <div className="header-left">
@@ -29,14 +34,14 @@ const Header = ({ handlePageChange, activePage }) => {
       </div>
       <div className="header-right">
         {isMobile ? (
-          <button className="hamburger-menu" onClick={() => {
-            // Toggle mobile menu here
-          }}>
+          <button className="hamburger-menu" onClick={handleMenuToggle}>
             &#9776;
           </button>
         ) : (
           <>
-            <div className={activePage === 'about' ? 'active' : ''} onClick={() => handlePageChange('about')}>About</div>
+            <div className={activePage === 'about' ? 'active' : ''} onClick={() => handlePageChange('about')}>
+              About
+            </div>
             <div className={activePage === 'projects' ? 'active' : ''} onClick={() => handlePageChange('projects')}>
               Projects
             </div>
@@ -46,6 +51,16 @@ const Header = ({ handlePageChange, activePage }) => {
           <span role="img" aria-label="Email">✉️</span> Contact
         </div>
       </div>
+      {isMenuOpen && (
+        <div className="mobile-menu">
+          <div className={activePage === 'about' ? 'active' : ''} onClick={() => handlePageChange('about')}>
+            About
+          </div>
+          <div className={activePage === 'projects' ? 'active' : ''} onClick={() => handlePageChange('projects')}>
+            Projects
+          </div>
+        </div>
+      )}
     </header>
   );
 };
