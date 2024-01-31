@@ -64,3 +64,17 @@ header {
 .dinkar.active::after {
   transform: scaleX(1);
 }
+
+@media only screen and (max-width: 768px) {
+  header {
+    padding: 10px 20px;
+  }
+
+  .header-right {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}

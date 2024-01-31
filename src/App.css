@@ -46,6 +46,13 @@ html {
   }
 }
 
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+  .content-container {
+    padding: 10px;
+  }
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
