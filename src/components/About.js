@@ -57,18 +57,15 @@ const WriteAbout = () => {
       <h2 style={{ color: '#008080' }} >Work Experience</h2>
       <p>
         <b>Software Engineer</b><br />
-        Dept of Computer Science, UCR<br />
-        Jan 2023 - Sept 2023
+        Dept. of Computer Science, UCR<br />
       </p>
       <p>
         <b>Software Engineer - Machine Learning (JRF) </b><br />
         IIT Tirupati, India<br />
-        Jun 2021 - Dec 2021
       </p>
       <p>
         <b>Project Lead</b><br />
         WHEELS Global Foundation, USA<br />
-        May 2019 - Jul 2019
       </p>
       <br />
       {/* Add more work experiences */}
@@ -78,9 +75,9 @@ const WriteAbout = () => {
       <ul style={{ marginBottom: "10px" }}>
           <li style={{ marginBottom: "10px" }} >Computer Science <b>Teaching Assistant</b> for CS 010A - Intro to Computer Science for Science, Mathematics, & Engineering I (C++) CS 141 - Intermediate Data Structures and Algorithms. (Fall 2023) </li>
           <li style={{ marginBottom: "10px" }} >Course Assistant (Reader) for CS 141 - Intermediate Data Structures and Algorithms, UCR. (Spring 2023)</li>
-          <li style={{ marginBottom: "10px" }} >As a Graduate Student Assistant, I collaborated with Professor Kelly Downey in managing test center operations as a member of the CSE Test Center team at UCR. (2023- 2024)</li>
-          <li style={{ marginBottom: "10px" }} >Held student leadership positions Student General Secretary and Mess Affairs Secretary at IIT Tirupati. </li>
-          <li style={{ marginBottom: "50px" }} ><b>Silver Medal, Inter-IIT Tech meet 2019, India </b>Implemented an algorithm that finds an optimal solution for the BOSCH Vehicle Routing Problem(VRP) with a given set of constraints and achieved silver medal at Inter-IIT held at IIT Roorkee.</li>
+          <li style={{ marginBottom: "10px" }} >As a <b>Graduate Student Assistant</b>, I collaborated with Prof. Kelly Downey in managing the operations of the CSE Test Center at UCR. (2023- 2024)</li>
+          <li style={{ marginBottom: "10px" }} >Held student leadership positions, including student general secretary and mess affairs secretary at IIT Tirupati. </li>
+          <li style={{ marginBottom: "50px" }} ><b>Silver Medal, Inter-IIT Tech meet 2019, India </b>Implemented an algorithm that finds an optimal solution for the BOSCH Vehicle Routing Problem(VRP) with a given set of constraints and achieved silver medal at IIT Roorkee.</li>
           {/* Add more points */}
         </ul>
       </p>

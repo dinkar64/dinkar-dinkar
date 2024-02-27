@@ -2,20 +2,23 @@
 
 .home-container {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 2%;
   }
   
-  .profile-image {
-    border-radius: 50%;
-    width: 100%; /* Adjust as needed */
-    max-width: 250px;
-    height: auto;
-    margin-top: 160px;
-  }
-  
-  .tagline {
-    font-style: italic;
-    font-size: 18px;
-    margin-top: 20px;
-  }
+/* Make the image responsive */
+.profile-image {
+  border-radius: 50%;
+  width: 100%;
+  max-width: 250px; /* Adjust as needed */
+  height: auto;
+  margin-top: 10%; /* Use percentage for margin */
+}
+
+/* Use relative units for font sizes */
+.tagline {
+  font-style: italic;
+  font-size: 1.2em;
+  margin-top: 2%; /* Use percentage for margin */
+  margin-bottom: 10%; /* Use percentage for margin */
+}
   
